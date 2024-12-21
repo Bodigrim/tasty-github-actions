@@ -1,0 +1,39 @@
+cabal-version:   2.0
+name:            tasty-github-actions
+version:         0.1
+license:         BSD3
+license-file:    LICENSE
+maintainer:      andrew.lelechenko@gmail.com
+author:          Bodigrim
+tested-with:
+    ghc ==9.12.1 ghc ==9.10.1 ghc ==9.8.4 ghc ==9.6.5 ghc ==9.4.8
+    ghc ==9.2.8 ghc ==9.0.2 ghc ==8.10.7 ghc ==8.8.4 ghc ==8.6.5
+    ghc ==8.4.4 ghc ==8.2.2 ghc ==8.0.2
+
+synopsis:        Integratie Tasty tests with GitHub Actions
+category:        Testing
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+source-repository head
+    type:     git
+    location: https://github.com/Bodigrim/tasty-github-actions.git
+
+library
+    exposed-modules:  Test.Tasty.GitHubActions
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    build-depends:
+        base <5,
+        tasty
+
+test-suite tasty-github-actions-test
+    type:             exitcode-stdio-1.0
+    main-is:          Main.hs
+    hs-source-dirs:   test
+    default-language: Haskell2010
+    build-depends:
+        base,
+        tasty,
+        tasty-github-actions,
+        tasty-hunit
